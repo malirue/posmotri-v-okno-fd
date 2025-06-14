@@ -71,6 +71,11 @@ ol {
 }
 
 .result__video-container {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    padding-bottom: 16px;
 }
 
 .result__video {
@@ -131,4 +136,38 @@ ol {
 }
 
 .content__list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.content__list-item {
+}
+
+.content__card-link {
+}
+
+.content__video-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.content__video-card-description-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.content__video-card-title {
+}
+
+.content__video-card-description {
+}
+
+.content__video-card-thumbnail {
+    width: 194px;
+    height: 103px;
+    object-fit: cover;
+    object-position: center;
 }
