@@ -34,6 +34,16 @@ fieldset {
     padding: 0;
 }
 
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 ul,
 ol {
     list-style: none;
@@ -67,7 +77,6 @@ ol {
 
 .result {
     grid-area: result;
-    height: 534px;
 }
 
 .result__video-container {
@@ -86,14 +95,26 @@ ol {
 .search-form {
     display: flex;
     gap: 40px;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: right;
+    align-items: flex-end;
+    
 }
 
 .search-form__fieldset {
+  display: flex;
+  column-gap: 30px;
+  row-gap: 5px;
+  flex-direction: column;
+  flex-grow: 1;
+  border: none;
 }
 
 .search-form__fieldset-title {
+    font-family: Fira Sans Condensed;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
 }
 
 .search-form__label {
@@ -102,37 +123,84 @@ ol {
 .search-form__label-text {
 }
 
+.button {
+font-family: Fira Sans Condensed;
+font-weight: 700;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+color: #ffffff;
+background-color: transparent;
+border: 1px solid #ffffff;
+}
+
+.search-form__submit-button {
+flex-grow: 3;
+padding: 6px;
+
+}
+
 .search-form__textfield {
+width: 100%;
+font-family: Fira Sans Condensed;
+font-weight: 400;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #FFFFFFB2;
+background-color: transparent;
+border-top: 1px solid #ffffff;
+border-bottom: 1px solid #ffffff;
+border-right: 0px;
+border-left: 0px;
 }
 
 .search-form__checkbox-list {
+    /* display: flex;
+    justify-content: space-around; */
 }
 
 .search-form__checkbox {
 }
 
+input[type='checkbox']:checked + span {
+    background-color: #ffffff;
+    border: 1px solid #1b1919;
+}
+
 .search-form__pseudo-checkbox {
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 1px solid #ffffff;
 }
 
-.search-form__submit-button {
-}
 
-.content__detalis {
+.content__details{
     grid-area: content__details;
-    height: 100%;
-    width: 100%;
+    height: 534px;
+    width: 399px;
 }
 
 .title {
-    margin-bottom: 26px;
+    padding-bottom: 26px;
+    font-family: Oswald;
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 94%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
 }
 
 .content__accent {
+    color: #545050;
 }
 
 .content__list-container {
-    height: 534px;
-    overflow: scroll;
+    height: 298px;
+    overflow: auto;
 }
 
 .content__list {
@@ -145,6 +213,8 @@ ol {
 }
 
 .content__card-link {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .content__video-card {
@@ -157,17 +227,41 @@ ol {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    gap: 6px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .content__video-card-title {
+    font-family: Oswald;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden
 }
 
 .content__video-card-description {
+  line-height: 16.2px;
+  white-space: wrap; /*только при добавлении этого 
+  свойства работает сраный line-clamp,
+   который нужно использовать по заданию*/
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /*в ТЗ не прописано 
+  сколько строчек должно отображаться, 
+  сказано обратить внимание*/
+  overflow: hidden;
 }
 
 .content__video-card-thumbnail {
-    width: 194px;
-    height: 103px;
+   width: 194px;
+    height: 103px; а нужна ли они, может как то по другому*/
     object-fit: cover;
     object-position: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    /* flex-basis: 0; */
 }
