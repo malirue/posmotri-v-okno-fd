@@ -34,14 +34,18 @@ fieldset {
     padding: 0;
 }
 
+fieldset {
+    border: 0;
+}
+
 .visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
   white-space: nowrap;
-  width: 1px;
 }
 
 ul,
@@ -118,9 +122,13 @@ ol {
 }
 
 .search-form__label {
+    display: flex;
+    align-items: center;
+    width: fit-content;
 }
 
 .search-form__label-text {
+    padding-left: 5px;
 }
 
 .button {
@@ -154,11 +162,24 @@ border-top: 1px solid #ffffff;
 border-bottom: 1px solid #ffffff;
 border-right: 0px;
 border-left: 0px;
+appearance: none;
+/* Факультативный шаг. 
+Когда элемент в фокусе — добавьте границу 
+вокруг с использованием outline. 
+У этого элемента нужно сбросить обводку 
+в состоянии фокуса и вместо этого сделать 
+границу у лейбла, который его окружает. 
+Лейбл должен получать границу только 
+когда поле находится в состоянии :focus-visible, 
+но не :focus. Чтобы это реализовать, 
+можно применить хитрую комбинацию 
+псевдоклассов на классе 
+лейбла — :has(:focus-visible). */
 }
 
 .search-form__checkbox-list {
-    /* display: flex;
-    justify-content: space-around; */
+    display: flex;
+    gap: 15px;
 }
 
 .search-form__checkbox {
