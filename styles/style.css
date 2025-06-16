@@ -39,13 +39,13 @@ fieldset {
 }
 
 .visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
 
 ul,
@@ -101,16 +101,15 @@ ol {
     gap: 40px;
     justify-content: right;
     align-items: flex-end;
-    
 }
 
 .search-form__fieldset {
-  display: flex;
-  column-gap: 30px;
-  row-gap: 5px;
-  flex-direction: column;
-  flex-grow: 1;
-  border: none;
+    display: flex;
+    column-gap: 30px;
+    row-gap: 5px;
+    flex-direction: column;
+    flex-grow: 1;
+    border: none;
 }
 
 .search-form__fieldset-title {
@@ -127,54 +126,49 @@ ol {
     width: fit-content;
 }
 
+.search-form__label:has(:focus-visible) {
+    outline: 1px solid #ffffff;
+}
+
+.search-form__checkbox-list > .search-form__label:hover {
+    text-decoration: underline;
+}
+
 .search-form__label-text {
     padding-left: 5px;
 }
 
 .button {
-font-family: Fira Sans Condensed;
-font-weight: 700;
-font-size: 18px;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-color: #ffffff;
-background-color: transparent;
-border: 1px solid #ffffff;
+    font-family: Fira Sans Condensed;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #ffffff;
 }
 
 .search-form__submit-button {
-flex-grow: 3;
-padding: 6px;
-
+    flex-grow: 3;
+    padding: 6px;
 }
 
 .search-form__textfield {
-width: 100%;
-font-family: Fira Sans Condensed;
-font-weight: 400;
-font-size: 18px;
-line-height: 100%;
-letter-spacing: 0%;
-color: #FFFFFFB2;
-background-color: transparent;
-border-top: 1px solid #ffffff;
-border-bottom: 1px solid #ffffff;
-border-right: 0px;
-border-left: 0px;
-appearance: none;
-/* Факультативный шаг. 
-Когда элемент в фокусе — добавьте границу 
-вокруг с использованием outline. 
-У этого элемента нужно сбросить обводку 
-в состоянии фокуса и вместо этого сделать 
-границу у лейбла, который его окружает. 
-Лейбл должен получать границу только 
-когда поле находится в состоянии :focus-visible, 
-но не :focus. Чтобы это реализовать, 
-можно применить хитрую комбинацию 
-псевдоклассов на классе 
-лейбла — :has(:focus-visible). */
+    width: 100%;
+    font-family: Fira Sans Condensed;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #ffffffb2;
+    background-color: transparent;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    border-right: 0px;
+    border-left: 0px;
+    appearance: none;
 }
 
 .search-form__checkbox-list {
@@ -185,21 +179,28 @@ appearance: none;
 .search-form__checkbox {
 }
 
-input[type='checkbox']:checked + span {
-    background-color: #ffffff;
-    border: 1px solid #1b1919;
-}
-
 .search-form__pseudo-checkbox {
+    display: flex;
     width: 19px;
     height: 19px;
-    display: inline-block;
     vertical-align: middle;
-    outline: 1px solid #ffffff;
+    border: 1px solid #ffffff;
 }
 
+.search-form__pseudo-checkbox::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border: 1px solid #1b1919;
+    display: none;
+}
 
-.content__details{
+input[type="checkbox"]:checked + span::after {
+    display: block;
+}
+
+.content__details {
     grid-area: content__details;
     height: 534px;
     width: 399px;
@@ -261,25 +262,25 @@ input[type='checkbox']:checked + span {
     letter-spacing: 0%;
     text-transform: uppercase;
     text-overflow: ellipsis;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .content__video-card-description {
-  line-height: 16.2px;
-  white-space: wrap; /*только при добавлении этого 
+    line-height: 16.2px;
+    white-space: wrap; /*только при добавлении этого 
   свойства работает сраный line-clamp,
    который нужно использовать по заданию*/
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1; /*в ТЗ не прописано 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /*в ТЗ не прописано 
   сколько строчек должно отображаться, 
   сказано обратить внимание*/
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .content__video-card-thumbnail {
-   width: 194px;
-    height: 103px; а нужна ли они, может как то по другому*/
+    width: 194px;
+    height: 103px; /*а нужна ли они, может как то по другому*/
     object-fit: cover;
     object-position: center;
     flex-grow: 0;
