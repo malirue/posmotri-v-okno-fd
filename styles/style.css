@@ -126,8 +126,17 @@ ol {
     width: fit-content;
 }
 
+.search-form__label:focus {
+    outline: none;
+}
+
 .search-form__label:has(:focus-visible) {
     outline: 1px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.search-form__label:has(:active) {
+    outline: none;
 }
 
 .search-form__checkbox-list > .search-form__label:hover {
@@ -136,6 +145,10 @@ ol {
 
 .search-form__label-text {
     padding-left: 5px;
+}
+
+button {
+    outline: none;
 }
 
 .button {
@@ -148,11 +161,30 @@ ol {
     color: #ffffff;
     background-color: transparent;
     border: 1px solid #ffffff;
+    padding: 6px;
+}
+
+.button:active {
+    background-color: #545050;
+}
+
+.button:hover {
+    text-decoration: underline;
+}
+
+.button:focus-visible {
+    outline: 1px solid #ffffff;
+    outline-offset: 2px;
 }
 
 .search-form__submit-button {
     flex-grow: 3;
-    padding: 6px;
+    /*указать нормальные размеры при подгонке по пикселям*/
+}
+
+.more-button {
+    width: 100%;
+    margin-top: 30px;
 }
 
 .search-form__textfield {
@@ -198,6 +230,14 @@ ol {
 
 input[type="checkbox"]:checked + span::after {
     display: block;
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+input:active {
+    outline: none;
 }
 
 .content__details {
