@@ -80,7 +80,7 @@ ol {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 544px;
+    min-height: 544px;
 }
 
 .result__video-container {
@@ -120,7 +120,7 @@ ol {
 }
 
 .search-form__fieldset-title {
-    font-family: "Fira Sans Condensed", sans-serif;;
+    font-family: "Fira Sans Condensed", sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 105%;
@@ -164,7 +164,7 @@ button {
 }
 
 .button {
-    font-family: "Fira Sans Condensed", sans-serif;;
+    font-family: "Fira Sans Condensed", sans-serif;
     font-weight: 700;
     font-size: 18px;
     line-height: 100%;
@@ -172,7 +172,7 @@ button {
     text-align: center;
     color: #ffffff;
     background-color: transparent;
-    border: 1px solid #ffffff;
+    border: 1px solid currentColor;
     padding: 6px;
     cursor: pointer;
 }
@@ -198,22 +198,21 @@ button {
     min-width: 390px;
     min-height: 34px;
     margin-top: 25px;
-    margin-right: 3px;
     margin-left: 3px;
     margin-bottom: 3px;
 }
 
 .search-form__textfield {
     width: 100%;
-    font-family: "Fira Sans Condensed", sans-serif;;
+    font-family: "Fira Sans Condensed", sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
-    color: #ffffffb2;
+    color: #ffffff;
     background-color: transparent;
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
     border-right: 0px;
     border-left: 0px;
     appearance: none;
@@ -265,12 +264,12 @@ input:active {
     flex-direction: column;
     justify-content: flex-end;
     row-gap: 20px;
-    height: 544px;
+    min-height: 544px;
     width: 399px;
 }
 
 .title {
-    font-family: "Oswald", sans-serif;;
+    font-family: "Oswald", sans-serif;
     font-weight: 700;
     font-size: 75px;
     line-height: 94%;
@@ -340,7 +339,7 @@ input:active {
 }
 
 .content__video-card-title {
-    font-family: "Oswald", sans-serif;;
+    font-family: "Oswald", sans-serif;
     font-weight: 700;
     font-size: 30px;
     line-height: 100%;
