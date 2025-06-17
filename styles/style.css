@@ -72,28 +72,30 @@ ol {
     column-gap: 30px;
     grid-template-areas: "result content__details";
     align-items: center;
-    /*вначале дала значение end, 
-    поскольку так было написано в задании, 
-    но не сошлост с вилео с резкльтатом 
-    по шагу 1*/
     width: 1140px;
 }
 
 .result {
     grid-area: result;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 544px;
 }
 
 .result__video-container {
-    width: auto;
-    height: auto;
+    width: 711px;
+    height: 386px;
     object-fit: cover;
     object-position: center;
-    padding-bottom: 16px;
+    margin-bottom: 16px;
+    position: relative;
 }
 
 .result__video {
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 
 .search-form {
@@ -101,28 +103,38 @@ ol {
     gap: 40px;
     justify-content: right;
     align-items: flex-end;
+    padding-top: 3px;
 }
 
 .search-form__fieldset {
     display: flex;
-    column-gap: 30px;
     row-gap: 5px;
     flex-direction: column;
     flex-grow: 1;
+    min-width: 225px;
     border: none;
+}
+
+.search-form__fieldset ~ .search-form__fieldset {
+    min-width: 212px;
 }
 
 .search-form__fieldset-title {
     font-family: Fira Sans Condensed;
     font-weight: 400;
     font-size: 18px;
-    line-height: 100%;
+    line-height: 105%;
     letter-spacing: 0%;
 }
 
 .search-form__label {
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.search-form__label > .search-form__fieldset {
+    min-width: 100%;
     width: fit-content;
 }
 
@@ -135,7 +147,7 @@ ol {
     outline-offset: 2px;
 }
 
-.search-form__label:has(:active) {
+.search-form__label:active {
     outline: none;
 }
 
@@ -162,6 +174,7 @@ button {
     background-color: transparent;
     border: 1px solid #ffffff;
     padding: 6px;
+    cursor: pointer;
 }
 
 .button:active {
@@ -178,13 +191,16 @@ button {
 }
 
 .search-form__submit-button {
-    flex-grow: 3;
-    /*указать нормальные размеры при подгонке по пикселям*/
+    min-width: 194px;
 }
 
 .more-button {
-    width: 100%;
-    margin-top: 30px;
+    min-width: 390px;
+    min-height: 34px;
+    margin-top: 25px;
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
 }
 
 .search-form__textfield {
@@ -201,11 +217,14 @@ button {
     border-right: 0px;
     border-left: 0px;
     appearance: none;
+    cursor: pointer;
 }
 
 .search-form__checkbox-list {
     display: flex;
+    justify-content: space-between;
     gap: 15px;
+    padding-bottom: 5px;
 }
 
 .search-form__checkbox {
@@ -242,12 +261,15 @@ input:active {
 
 .content__details {
     grid-area: content__details;
-    height: 534px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    row-gap: 20px;
+    height: 544px;
     width: 399px;
 }
 
 .title {
-    padding-bottom: 26px;
     font-family: Oswald;
     font-weight: 700;
     font-size: 75px;
@@ -263,20 +285,43 @@ input:active {
 .content__list-container {
     height: 298px;
     overflow: auto;
+    position: relative;
 }
 
 .content__list {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 23px;
 }
 
 .content__list-item {
+    padding: 3px;
 }
 
 .content__card-link {
+    display: block;
     text-decoration: none;
     color: #ffffff;
+}
+
+.content__card-link:active {
+    background-color: #545050;
+}
+
+.content__card-link:focus {
+    outline: none;
+}
+
+.content__card-link:focus-visible {
+    outline: 1px solid #ffffff;
+}
+
+.content__card-link:hover {
+    text-decoration: underline;
+}
+
+.content__card-link_current {
+    background-color: #545050;
 }
 
 .content__video-card {
@@ -307,23 +352,18 @@ input:active {
 
 .content__video-card-description {
     line-height: 16.2px;
-    white-space: wrap; /*только при добавлении этого 
-  свойства работает сраный line-clamp,
-   который нужно использовать по заданию*/
+    white-space: wrap;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1; /*в ТЗ не прописано 
-  сколько строчек должно отображаться, 
-  сказано обратить внимание*/
+    -webkit-line-clamp: 1;
     overflow: hidden;
 }
 
 .content__video-card-thumbnail {
     width: 194px;
-    height: 103px; /*а нужна ли они, может как то по другому*/
+    height: 103px;
     object-fit: cover;
     object-position: center;
     flex-grow: 0;
     flex-shrink: 0;
-    /* flex-basis: 0; */
 }
